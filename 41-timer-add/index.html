@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> timer button的测试页面  工厂函数</title>
+  <title> timer button的测试页面  构造函数</title>
  <link rel='stylesheet' href='./time-button.css' >
 </head>
 <body>
@@ -17,24 +17,16 @@ $(function(){
      // $timerButton.show('#main');
     var $btnAdd=$('#add');
    
-      $timerButton.show({
+    $btnAdd.click(function(){
+      var tb=new TimerButton();
+      tb.show({
         title:'发送验证',
         num:10,
         onClick:function(){
          alert('点击了定时器按钮')
         }
         });
-      $btnAdd.click(function(){
-        $timerButton.show({
-          num:5,
-          title:'222',
-          onClick:function(){
-          alert('sss');
-          }
-          })
-        }) 
-    
-    })
-    </script>
+      })      })
+        </script>
 </body>
 </html>

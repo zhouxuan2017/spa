@@ -1,19 +1,21 @@
 var $timerButton=(function(){
  // var html='<input type="button" value="同意（6s)" disabled>',
- var $btn=$('<input  class="timer-button" type="button"  disabled>'),
-    //var $btn=$('<input type="button" value="同意(6s)" disabled>'),
-      num=6,
-    cfg={
-      container:'body',
-      num:6,//默认时长
-     title:'同意'//默认按钮文字
-    },
-      timer;
+
 /*$btn.css({
   height:'50px',
   width:'100px'
 })*/
 function show(conf){
+
+ var $btn=$('<input  class="timer-button" type="button"  disabled>');
+ // var html='<input type="button" value="同意（6s)" disabled>',
+ var             cfg={
+      container:'body',
+      num:6,//默认时长
+     title:'同意',//默认按钮文字
+    onClick:null
+    },
+    timer;
   //1.DOM绘制
  // $(container).html(html);
   $(cfg.container).append($btn);
@@ -32,10 +34,8 @@ timer=setInterval(function(){
   $btn.val(cfg.title+'('+cfg.num+'s)')
 }
 },1000);
-  $btn.click(function(){
-    cfg.onClick();
-        })
-}
+  $btn.click(cfg.onClick)
+  }
   return {
     show:show
   }
